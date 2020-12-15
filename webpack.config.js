@@ -32,7 +32,7 @@ module.exports = {
   mode: 'development',
   devServer: {
     open: false,
-    contentBase: './dist',
+    contentBase: path.resolve(__dirname, './dist'),
     publicPath: '/',
     inline: true,
     port: 4000,
