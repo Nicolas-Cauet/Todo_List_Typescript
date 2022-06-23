@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: path.join(__dirname, 'src/index.js'),
+    main: path.join(__dirname, 'src/index.ts'),
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -12,9 +12,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js/,
+        test: /\.ts/,
         exclude: /(node_modules)/,
-        use: ['babel-loader'],
+        use: ['ts-loader'],
       },
       {
         test: /\.css$/i,
@@ -24,12 +24,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, './src/index.html'),
+      template: path.join(__dirname, './index.html'),
     }),
   ],
   stats: 'minimal',
   devtool: 'source-map',
-  mode: 'development',
+  mode: 'production',
   devServer: {
     static: path.resolve(__dirname, './dist'),
     open: true,
